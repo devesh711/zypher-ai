@@ -10,10 +10,7 @@ export default function Layout({ pageTitle, children }) {
         <div>
             <Head>
                 <link rel="shortcut icon" href={logo} />
-                <meta
-                    name="description"
-                    content="Portal Based Simulation Process Data Management"
-                />
+                <meta name="description" content="Zypher-ai" />
                 <meta property="og:image" content={logo} />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
