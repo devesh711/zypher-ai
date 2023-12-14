@@ -2,76 +2,143 @@ import Layout from "../components/layout";
 import { getCookie } from "cookies-next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
+import logo from "../public/logo.svg";
+import Image from "next/image";
+import { Input } from "@material-tailwind/react";
 
 export default function LoginPage({ username }) {
-  const router = useRouter();
-  const { msg } = router.query;
+    const router = useRouter();
+    const { msg } = router.query;
 
-  return (
-    <Layout pageTitle="Login">
-      <Link href="/">Home</Link>
-      <div className="flex justify-center items-center min-h-screen m-0 p-0">
-        <br />
-        {msg ? <h3 className="red">{msg}</h3> : <></>}
-        <div className="login-container">
-          <h2>Log in</h2>
-          <form action="/api/login" method="POST">
-            <input
-              minLength="3"
-              name="username"
-              id="username"
-              type="text"
-              placeholder="Username"
-              required
-            />
-            <br />
-            <input
-              minLength="5"
-              name="password"
-              id="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
-            <br />
-            <input
-              className="px-10 py-4 rounded ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white"
-              type="submit"
-              value="Login"
-            />
-          </form>
-        </div>
-      </div>
-      <style jsx>{`
-        .login-container {
-          background-color: var(--light-background);
-          border-radius: 15px;
-          padding: 20px;
-          width: 300px;
-          margin: 0 auto;
-        }
+    const [showPasswordFields, setShowPasswordFields] = useState(false);
 
-        .login-container h2 {
-          color: var(--primary);
-        }
-      `}</style>
-    </Layout>
-  );
+    const handleContinue = (e) => {
+        e.preventDefault();
+        // Toggle the visibility of the password input fields
+        setShowPasswordFields(!showPasswordFields);
+    };
+
+    return (
+        <Layout pageTitle="Login">
+            <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-[34rem]">
+                <Image src={logo} width={205} height={164} alt="ZYPHER" />
+                {msg ? <h3 className="red">{msg}</h3> : <></>}
+
+                <div className="flex flex-col ml-px gap-8 w-full items-center">
+                    <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec]">
+                        Welcome Back
+                    </div>
+                    <div className="flex flex-col gap-6 w-full items-start">
+                        <form
+                            className="flex flex-col justify-between gap-5 w-full items-start"
+                            action="/api/login"
+                            method="POST"
+                        >
+                            <div className="flex w-full flex-col items-end gap-6">
+                                <Input
+                                    label="Username"
+                                    name="username"
+                                    id="username"
+                                    type="text"
+                                    color="blue"
+
+                                    //className="!border !border-[#6dadec] text-white !placeholder:text-white focus:!border-[#6dadec] focus:!border-t-[#6dadec]"//
+                                />
+                            </div>
+                            {!showPasswordFields && (
+                                <>
+                                    {" "}
+                                    <button
+                                        className="text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                        onClick={handleContinue}
+                                    >
+                                        Continue
+                                    </button>
+                                    <div className="flex flex-row ml-12 gap-2 w-2/3 items-start">
+                                        <div className="text-center text-base font-['Inter'] text-white">
+                                            Don’t have an account?
+                                        </div>
+                                        <Link
+                                            className="text-center text-base font-['Inter'] text-[#6dadec] "
+                                            href="/signup"
+                                        >
+                                            Sign up
+                                        </Link>
+                                    </div>
+                                </>
+                            )}
+
+                            {showPasswordFields && (
+                                <>
+                                    <Input
+                                        type="password"
+                                        label="Password"
+                                        name="password"
+                                        id="password"
+                                        color="blue"
+                                    />
+
+                                    <br />
+
+                                    <input
+                                        className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
+                                        type="submit"
+                                        value="Login"
+                                    />
+                                </>
+                            )}
+                        </form>
+
+                        {/* Other components */}
+                        {!showPasswordFields && (
+                            <div className="flex flex-col justify-between gap-5 w-full items-start">
+                                {/* Add Google and Apple authentication options */}
+                                <div className="relative flex flex-row justify-center w-full items-start">
+                                    <div
+                                        id="Line"
+                                        className="border-solid border-[#6dadec] w-full h-px absolute top-2 left-0 border-t border-b-0 border-x-0"
+                                    />
+                                    <div className="w-12 h-3 bg-[#152335] absolute top-1" />
+                                    <div className="text-center text-base font-['Inter'] text-white relative">
+                                        OR
+                                    </div>
+                                </div>
+                                <button
+                                    className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                    onClick={() => handleGoogleAuth()}
+                                >
+                                    Login with Google
+                                </button>
+
+                                <button
+                                    className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                    onClick={() => handleAppleAuth()}
+                                >
+                                    Login with Apple
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </Layout>
+    );
 }
 
 export async function getServerSideProps(context) {
-  const req = context.req;
-  const res = context.res;
-  var username = getCookie("username", { req, res });
+    const req = context.req;
+    const res = context.res;
+    var username = getCookie("username", { req, res });
 
-  if (username !== undefined) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/",
-      },
-    };
-  }
+    if (username !== undefined) {
+        return {
+            redirect: {
+                permanent: false,
+                destination: "/"
+            }
+        };
+    }
 
-  return { props: { username: false } };
+    return { props: { username: false } };
 }

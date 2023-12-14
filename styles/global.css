@@ -4,125 +4,62 @@
 @tailwind utilities;
 /* Fonts */
 @font-face {
-  font-family: "Flama";
-  src: url("../fonts/FlamaTrial-Basic.otf");
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Arial_Rounded_MT_Bold";
+    src: url("../fonts/Arial.ttf") format("truetype");
 }
 
-@font-face {
-  font-family: "Flama";
-  src: url("../fonts/FlamaTrial-Medium.otf");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Flama";
-  src: url("../fonts/FlamaTrial-BoldItalic.otf");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Flama";
-  src: url("../fonts/FlamaTrial-MediumItalic.otf");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Flama";
-  src: url("../fonts/FlamaTrial-SemiboldItalic.otf");
-  font-weight: bold;
-  font-style: italic;
-}
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 /* Color Variables */
 :root {
-  --primary: #a589be;
-  --light-accent: #a589be;
-  --dark-accent: #5b2d90;
-  --secondary: #0ceddb;
-  --red: #ff0000;
-  --background: #ffffff;
-  --light-background: #f0f0f0;
-  --font-color: rgb(0, 0, 0);
-  --light-font: #aabbc3;
+    --primary: #a589be;
+    --light-accent: #a589be;
+    --dark-accent: #5b2d90;
+    --secondary: #0ceddb;
+    --red: #ff0000;
+    --background: #ffffff;
+    --light-background: #f0f0f0;
+    --font-color: rgb(0, 0, 0);
+    --light-font: #aabbc3;
 }
 
 /* Body Styles */
 body {
-  padding: 0;
-  background-color: var(--background);
-  scroll-behavior: smooth;
-  color: var(--font-color);
-  text-align: center;
-  font-family: "Flama", Open Sans, sans-serif;
+    padding: 0;
+    background-color: var(--background);
+    scroll-behavior: smooth;
+    color: var(--font-color);
+    text-align: center;
+    font-family: "Flama", Open Sans, sans-serif;
 }
 
 /* Strong Text Styles */
 strong {
-  font-weight: bold;
-  color: var(--light-accent);
+    font-weight: bold;
+    color: var(--light-accent);
 }
 
 /* Link Styles */
-a {
-  text-decoration: none;
-  color: var(--primary);
-  font-weight: bold;
-  font-style: italic;
-}
-
-a:hover {
-  color: var(--dark-accent);
-}
 
 /* Button Styles */
-button,
-input[type="submit"] {
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 15px;
-  background-color: white;
-  color: var(--font-color);
-  cursor: pointer;
-  border: 2px solid var(--primary);
-  transition: 0.2s;
-  font-size: 17px;
-  font-style: italic;
-}
-
-button:hover,
-input[type="submit"]:hover {
-  border-color: var(--dark-accent);
-}
 
 /* Input Styles */
-input[type="text"],
-input[type="password"] {
-  padding: 10px;
-  border-radius: 15px; /* Updated border-radius */
-  border: 2px solid var(--primary);
-  background-color: transparent;
-  outline: none;
-  font-size: 15px;
-  transition: 0.2s;
-  width: 200px;
-  margin-bottom: 30px;
-  color: var(--font-color);
-  text-align: center;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: var(--dark-accent);
-}
 
 /* Red Text Styles */
 .red {
-  font-weight: bold;
-  color: var(--red);
+    font-weight: bold;
+    color: var(--red);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.noscroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noscroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
