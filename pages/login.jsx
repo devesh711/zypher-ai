@@ -21,74 +21,72 @@ export default function LoginPage({ username }) {
 
     return (
         <Layout pageTitle="Login">
-            <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-[34rem]">
-                <Image src={logo} width={205} height={164} alt="ZYPHER" />
-                {msg ? <h3 className="red">{msg}</h3> : <></>}
+    <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4 lg:px-60 md:px-90 ">
+        <Image src={logo} width={205} height={164} alt="ZYPHER" />
+        {msg ? <h3 className="red">{msg}</h3> : <></>}
 
-                <div className="flex flex-col ml-px gap-8 w-full items-center">
-                    <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec]">
-                        Welcome Back
+        <div className="flex flex-col gap-8 w-full items-center">
+            <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec]">
+                Welcome Back
+            </div>
+            <div className="flex flex-col gap-6 w-full items-start">
+                <form
+                    className="flex flex-col justify-between gap-5 w-full items-start"
+                    action="/api/login"
+                    method="POST"
+                >
+                    <div className="flex w-full flex-col items-end gap-6">
+                        <Input
+                            label="Username"
+                            name="username"
+                            id="username"
+                            type="text"
+                            color="blue"
+                        />
                     </div>
-                    <div className="flex flex-col gap-6 w-full items-start">
-                        <form
-                            className="flex flex-col justify-between gap-5 w-full items-start"
-                            action="/api/login"
-                            method="POST"
-                        >
-                            <div className="flex w-full flex-col items-end gap-6">
-                                <Input
-                                    label="Username"
-                                    name="username"
-                                    id="username"
-                                    type="text"
-                                    color="blue"
-
-                                    //className="!border !border-[#6dadec] text-white !placeholder:text-white focus:!border-[#6dadec] focus:!border-t-[#6dadec]"//
-                                />
+                    {!showPasswordFields && (
+                        <>
+                            <button
+                                className="text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                onClick={handleContinue}
+                            >
+                                Continue
+                            </button>
+                            <div className="flex flex-row gap-2 w-full items-center justify-center">
+                                <div className="text-center text-base font-['Inter'] text-white">
+                                    Don’t have an account?
+                                </div>
+                                <Link
+                                    className="text-center text-base font-['Inter'] text-[#6dadec]"
+                                    href="/signup"
+                                >
+                                    Sign up
+                                </Link>
                             </div>
-                            {!showPasswordFields && (
-                                <>
-                                    {" "}
-                                    <button
-                                        className="text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                        onClick={handleContinue}
-                                    >
-                                        Continue
-                                    </button>
-                                    <div className="flex flex-row ml-12 gap-2 w-2/3 items-start">
-                                        <div className="text-center text-base font-['Inter'] text-white">
-                                            Don’t have an account?
-                                        </div>
-                                        <Link
-                                            className="text-center text-base font-['Inter'] text-[#6dadec] "
-                                            href="/signup"
-                                        >
-                                            Sign up
-                                        </Link>
-                                    </div>
-                                </>
-                            )}
+                        </>
+                    )}
 
-                            {showPasswordFields && (
-                                <>
-                                    <Input
-                                        type="password"
-                                        label="Password"
-                                        name="password"
-                                        id="password"
-                                        color="blue"
-                                    />
+                    {showPasswordFields && (
+                        <>
+                            <Input
+                                type="password"
+                                label="Password"
+                                name="password"
+                                id="password"
+                                color="blue"
+                            />
 
-                                    <br />
+                            <br />
 
-                                    <input
-                                        className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
-                                        type="submit"
-                                        value="Login"
-                                    />
-                                </>
-                            )}
-                        </form>
+                            <input
+                                className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
+                                type="submit"
+                                value="Login"
+                            />
+                        </>
+                    )}
+                </form>
+
 
                         {/* Other components */}
                         {!showPasswordFields && (
@@ -122,6 +120,7 @@ export default function LoginPage({ username }) {
                     </div>
                 </div>
             </div>
+            {/* </div> */}
         </Layout>
     );
 }

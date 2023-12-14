@@ -37,7 +37,7 @@ export default function HomePage({ username }) {
                 </>
             ) : (
                 <>
-                    <div className="bg-white flex flex-col justify-end pt-8 gap-4 w-full items-start">
+                    <div className="bg-white flex flex-col justify-end pt-8 gap-4 w-full items-start md:w-full">
                         <div className="flex flex-row justify-between ml-24 w-5/6 items-start ">
                             <Image
                                 src={zypher}
@@ -61,7 +61,7 @@ export default function HomePage({ username }) {
                                 </Link>
                             </div>
                         </div>
-                        <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px]">
+                        <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] 2xl:px-90 ">
                             <div className="bg-[#fefafa] flex flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px]">
                                 <div className="flex flex-col mt-32 gap-8 w-2/5 items-start">
                                     <div className="text-4xl font-primary text-left leading-[50px]">
