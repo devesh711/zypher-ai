@@ -14,6 +14,9 @@ module.exports = withMT({
         extend: {
             fontFamily: {
                 primary: "Arial_Rounded_MT_Bold"
+            },
+            colors: {
+                white: "#fbfbfd"
             }
         }
     },
