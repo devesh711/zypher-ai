@@ -42,6 +42,7 @@ export default function LoginPage({ username }) {
                                     id="username"
                                     type="text"
                                     color="blue"
+                                    autoComplete="off"
                                     required={true}
 
                                     //className="!border !border-[#6dadec] text-white !placeholder:text-white focus:!border-[#6dadec] focus:!border-t-[#6dadec]"//
@@ -78,6 +79,8 @@ export default function LoginPage({ username }) {
                                         name="password"
                                         id="password"
                                         color="blue"
+                                        autoComplete="off"
+                                        required={true}
                                     />
 
                                     <br />

@@ -44,6 +44,8 @@ export default function SignupPage({ username }) {
                                     id="username"
                                     type="text"
                                     color="blue"
+                                    autoComplete="off"
+                                    required={true}
                                 />
                             </div>
                             {!showPasswordFields && (
@@ -78,6 +80,8 @@ export default function SignupPage({ username }) {
                                         name="password"
                                         id="password"
                                         color="blue"
+                                        autoComplete="off"
+                                        required={true}
                                     />
                                     <br />
                                     <Input
@@ -87,6 +91,8 @@ export default function SignupPage({ username }) {
                                         id="passwordagain"
                                         type="password"
                                         color="blue"
+                                        autoComplete="off"
+                                        required={true}
                                     />
                                     <br />
                                     <input
