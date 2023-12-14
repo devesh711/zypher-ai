@@ -12,6 +12,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+input[type="text"]:focus ~ .input-text,
+input[type="text"]:not(:placeholder-shown) ~ .input-text {
+    @apply text-blue-500 transform -translate-y-10 -translate-x-2 scale-75;
+}
 /* Color Variables */
 :root {
     --primary: #a589be;

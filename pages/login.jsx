@@ -42,6 +42,7 @@ export default function LoginPage({ username }) {
                                     id="username"
                                     type="text"
                                     color="blue"
+                                    required={true}
 
                                     //className="!border !border-[#6dadec] text-white !placeholder:text-white focus:!border-[#6dadec] focus:!border-t-[#6dadec]"//
                                 />
