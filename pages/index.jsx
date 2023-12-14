@@ -37,13 +37,8 @@ export default function HomePage({ username }) {
                 </>
             ) : (
                 <>
-<<<<<<< HEAD
-                    <div className="bg-white flex flex-col justify-end pt-8 gap-4 w-full items-start md:w-full">
-                        <div className="flex flex-row justify-between ml-24 w-5/6 items-start ">
-=======
                     <div className="bg-white dark:bg-[#1d1d1f] max-w-8xl mx-auto">
                         <div className="flex items-center ml-10 py-4">
->>>>>>> c614c0c4906cbb1f596344e607e3fc27e615fe82
                             <Image
                                 src={zypher}
                                 width={284}
@@ -66,15 +61,10 @@ export default function HomePage({ username }) {
                                 </Link>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] 2xl:px-90 ">
-                            <div className="bg-[#fefafa] flex flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px]">
-=======
                     </div>
                     <div className="bg-white dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-start">
                         <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
                             <div className="bg-[#fefafa] flex flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px] ">
->>>>>>> c614c0c4906cbb1f596344e607e3fc27e615fe82
                                 <div className="flex flex-col mt-32 gap-8 w-2/5 items-start">
                                     <div className="text-4xl font-primary text-left leading-[50px]">
                                         Elevate Efficiency with <br />

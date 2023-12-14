@@ -44,7 +44,6 @@ export default function LoginPage({ username }) {
                             color="blue"
                         />
                     </div>
-<<<<<<< HEAD
                     {!showPasswordFields && (
                         <>
                             <button
@@ -63,41 +62,10 @@ export default function LoginPage({ username }) {
                                 >
                                     Sign up
                                 </Link>
-=======
-                    <div className="flex flex-col gap-6 w-full items-start">
-                        <form
-                            className="flex flex-col justify-between gap-5 w-full items-start"
-                            action="/api/login"
-                            method="POST"
-                        >
-                            <div className="flex w-full flex-col items-end gap-6">
-                                <Input
-                                    label="Username"
-                                    name="username"
-                                    id="username"
-                                    type="text"
-                                    color="blue"
-                                    autoComplete="off"
-                                    required={true}
-
-                                    //className="!border !border-[#6dadec] text-white !placeholder:text-white focus:!border-[#6dadec] focus:!border-t-[#6dadec]"//
-                                />
->>>>>>> c614c0c4906cbb1f596344e607e3fc27e615fe82
                             </div>
                         </>
                     )}
 
-<<<<<<< HEAD
-                    {showPasswordFields && (
-                        <>
-                            <Input
-                                type="password"
-                                label="Password"
-                                name="password"
-                                id="password"
-                                color="blue"
-                            />
-=======
                             {showPasswordFields && (
                                 <>
                                     <Input
@@ -109,7 +77,6 @@ export default function LoginPage({ username }) {
                                         autoComplete="off"
                                         required={true}
                                     />
->>>>>>> c614c0c4906cbb1f596344e607e3fc27e615fe82
 
                             <br />
 
