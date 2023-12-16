@@ -22,15 +22,19 @@ export default function LoginPage({ username }) {
     return (
         <Layout pageTitle="Login">
             <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4">
-               
-
                 <div className="flex flex-col gap-0 w-full items-center md:w-2/5 lg:w-1/3">
-                    <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec] pt-12">
+                    <div className="text-center text-2xl sm:text-4xl font-Inter font-bold text-[#6dadec] pt-12">
                         Welcome Back
                     </div>
-
-                    <Image src={logo} width={205} height={164} alt="ZYPHER" />
-                {msg ? <h3 className="red">{msg}</h3> : <></>}
+                    <Link className="cursor-default" href="/">
+                        <Image
+                            src={logo}
+                            width={205}
+                            height={164}
+                            alt="ZYPHER"
+                        />
+                    </Link>
+                    {msg ? <h3 className="red">{msg}</h3> : <></>}
 
                     <div className="flex flex-col gap-6 w-full items-start">
                         <form
@@ -52,17 +56,17 @@ export default function LoginPage({ username }) {
                             {!showPasswordFields && (
                                 <>
                                     <button
-                                        className="text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                        className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                         onClick={handleContinue}
                                     >
                                         Continue
                                     </button>
                                     <div className="flex flex-row gap-2 w-full items-center justify-center">
-                                        <div className="text-center text-base font-['Inter'] text-white">
+                                        <div className="text-center text-base font-light sm:font-normal font-['Inter'] text-white">
                                             Don’t have an account?
                                         </div>
                                         <Link
-                                            className="text-center text-base font-['Inter'] text-[#6dadec]"
+                                            className="text-center text-base font-light sm:font-normal font-['Inter'] text-[#6dadec]"
                                             href="/signup"
                                         >
                                             Sign up
@@ -109,14 +113,14 @@ export default function LoginPage({ username }) {
                                     </div>
                                 </div>
                                 <button
-                                    className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                    className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                     onClick={() => handleGoogleAuth()}
                                 >
                                     Login with Google
                                 </button>
 
                                 <button
-                                    className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                    className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                     onClick={() => handleAppleAuth()}
                                 >
                                     Login with Apple
