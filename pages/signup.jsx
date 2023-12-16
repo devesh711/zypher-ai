@@ -6,8 +6,8 @@ import React, { useState } from "react";
 import logo from "../public/logo.svg";
 import Image from "next/image";
 import { Input } from "@material-tailwind/react";
-import { GoogleAuthProvider,MicrosoftAuthProvider, signInWithPopup } from "firebase/auth";
-// import { MicrosoftAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
 import {auth} from '../firebase/firebaseConfig'
 
 
@@ -18,7 +18,8 @@ export default function SignupPage({ username }) {
     }
 
     const handleMicrosoft = async (e) =>{
-        const provider =  new MicrosoftAuthProvider();
+        const provider = new OAuthProvider('microsoft.com');
+        const auth = getAuth();
         return signInWithPopup(auth,provider)
     }
 
