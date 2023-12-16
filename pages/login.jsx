@@ -21,11 +21,11 @@ export default function LoginPage({ username }) {
 
     return (
         <Layout pageTitle="Login">
-            <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4 lg:px-60 md:px-90 ">
+            <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4">
                 <Image src={logo} width={205} height={164} alt="ZYPHER" />
                 {msg ? <h3 className="red">{msg}</h3> : <></>}
 
-                <div className="flex flex-col gap-8 w-full items-center">
+                <div className="flex flex-col gap-8 w-full items-center md:w-2/5 lg:w-1/3">
                     <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec]">
                         Welcome Back
                     </div>
