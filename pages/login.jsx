@@ -6,8 +6,15 @@ import React, { useState } from "react";
 import logo from "../public/logo.svg";
 import Image from "next/image";
 import { Input } from "@material-tailwind/react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {auth} from '../firebase/firebaseConfig'
+
 
 export default function LoginPage({ username }) {
+    const handleGoogle = async (e) =>{
+        const provider = await new GoogleAuthProvider();
+        return signInWithPopup(auth,provider)
+    }
     const router = useRouter();
     const { msg } = router.query;
 
@@ -114,7 +121,7 @@ export default function LoginPage({ username }) {
                                 </div>
                                 <button
                                     className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                    onClick={() => handleGoogleAuth()}
+                                    onClick={handleGoogle}
                                 >
                                     Login with Google
                                 </button>
