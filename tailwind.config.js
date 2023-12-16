@@ -13,7 +13,8 @@ module.exports = withMT({
     theme: {
         extend: {
             fontFamily: {
-                primary: "Arial_Rounded_MT_Bold"
+                primary: "Arial_Rounded_MT_Bold",
+                Inter: "Inter"
             },
             colors: {
                 white: "#fbfbfd"
