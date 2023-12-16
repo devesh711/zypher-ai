@@ -22,15 +22,23 @@ export default function SignupPage({ username }) {
     return (
         <Layout pageTitle="Signup">
             <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4 ">
-                <Image src={logo} width={205} height={164} alt="ZYPHER" />
-                {msg ? <h3 className="red">{msg}</h3> : <></>}
-                <div className="flex flex-col gap-8 w-full items-center md:w-2/5 lg:w-1/3">
+                
+                <div className="flex flex-col gap-0 w-full items-center md:w-2/5 lg:w-1/3">
                     <div
                         id="Welcome"
-                        className="text-center text-4xl font-primary font-bold text-[#6dadec]"
+                        className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec] pt-8"
                     >
                         Welcome{" "}
                     </div>
+
+                    {/* <div className="text-center"></div> */} 
+                  
+                  <  Image src={logo} width={205} height={164} alt="ZYPHER"/>
+                {msg ? <h3 className="red ">{msg}</h3> : <></>}
+                href="/login"
+                
+                
+
                     <div className="flex flex-col gap-6 w-full items-start">
                         <form
                             action="/api/signup"
