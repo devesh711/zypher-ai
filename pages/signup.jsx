@@ -2,12 +2,27 @@ import Layout from "../components/layout";
 import { getCookie } from "cookies-next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import logo from "../public/logo.svg";
 import React, { useState } from "react";
+import logo from "../public/logo.svg";
+import Image from "next/image";
 import { Input } from "@material-tailwind/react";
+import { GoogleAuthProvider,MicrosoftAuthProvider, signInWithPopup } from "firebase/auth";
+// import { MicrosoftAuthProvider, signInWithPopup } from "firebase/auth";
+import {auth} from '../firebase/firebaseConfig'
+
 
 export default function SignupPage({ username }) {
+    const handleGoogle = async (e) =>{
+        const provider = await new GoogleAuthProvider();
+        return signInWithPopup(auth,provider)
+    }
+
+    const handleMicrosoft = async (e) =>{
+        const provider =  new MicrosoftAuthProvider();
+        return signInWithPopup(auth,provider)
+    }
+
+
     const router = useRouter();
     const { msg } = router.query;
 
@@ -35,7 +50,7 @@ export default function SignupPage({ username }) {
                   
                   <  Image src={logo} width={205} height={164} alt="ZYPHER"/>
                 {msg ? <h3 className="red ">{msg}</h3> : <></>}
-                href="/login"
+                
                 
                 
 
@@ -125,15 +140,15 @@ export default function SignupPage({ username }) {
                                 </div>
                                 <button
                                     className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                    onClick={() => handleGoogleAuth()}
+                                    onClick={handleGoogle}
                                 >
                                     Login with Google
                                 </button>
                                 <button
                                     className="text-center text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                    onClick={() => handleAppleAuth()}
+                                    onClick={handleMicrosoft}
                                 >
-                                    Login with Apple
+                                    Login with Microsoft
                                 </button>
                             </div>
                         )}
