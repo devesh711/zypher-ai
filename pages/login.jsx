@@ -22,7 +22,18 @@ export default function LoginPage({ username }) {
     return (
         <Layout pageTitle="Login">
             <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4">
+<<<<<<< Updated upstream
                 <Image src={logo} width={205} height={164} alt="ZYPHER" />
+=======
+               <div></div>
+
+                <div className="flex flex-col gap-0 w-full items-center md:w-2/5 lg:w-1/3">
+                    <div className="text-center text-4xl font-['Inter'] font-bold text-[#6dadec] pt-12">
+                        Welcome Back
+                    </div>
+
+                    <Image src={logo} width={205} height={164} alt="ZYPHER" />
+>>>>>>> Stashed changes
                 {msg ? <h3 className="red">{msg}</h3> : <></>}
 
                 <div className="flex flex-col gap-8 w-full items-center md:w-2/5 lg:w-1/3">
