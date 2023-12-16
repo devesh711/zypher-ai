@@ -38,14 +38,14 @@ export default function HomePage({ username }) {
             ) : (
                 <>
                     <div className="bg-white dark:bg-[#1d1d1f] max-w-8xl mx-auto">
-                        <div className="flex items-center ml-10 py-4">
+                        <div className="flex flex-col sm:flex-row items-center ml-0 sm:ml-10 py-4">
                             <Image
                                 src={zypher}
                                 width={284}
                                 height={60}
                                 alt="ZYPHER"
                             />
-                            <div className="flex flex-col sm:flex-row mr-10 mt-1 gap-6 ml-auto w-1/4 items-center">
+                            <div className="flex flex-row mr-0 sm:mr-10 mt-1 gap-6 ml-0 sm:ml-auto w-1/2 sm:w-1/4 items-center">
                                 <Link
                                     className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg"
                                     href="/login"
@@ -64,14 +64,14 @@ export default function HomePage({ username }) {
                     </div>
                     <div className="bg-white dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-start">
                         <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
-                            <div className="bg-[#fefafa] flex flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px] ">
-                                <div className="flex flex-col mt-32 gap-8 w-2/5 items-start">
+                            <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px] ">
+                                <div className="flex flex-col mt-0 mb-12 md:mb-0 md:mt-32 gap-8 w-2/5 items-start">
                                     <div className="text-4xl font-primary text-left leading-[50px]">
                                         Elevate Efficiency with <br />
                                         AI Excellence.
                                     </div>
                                     <Link
-                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-5 w-2/3 h-16 items-start rounded-[20px]"
+                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px]"
                                         href="/signup"
                                     >
                                         Sign up for free
