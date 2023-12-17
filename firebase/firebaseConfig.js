@@ -1,14 +1,14 @@
 import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth';
+import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAE-xAmUkwr_uCmZa6VrRaQQYkyFBpn4kg",
-  authDomain: "zypher-ai-2e871.firebaseapp.com",
-  projectId: "zypher-ai-2e871",
-  storageBucket: "zypher-ai-2e871.appspot.com",
-  messagingSenderId: "585544448106",
-  appId: "1:585544448106:web:6525b5179af18f64177213"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_SENDERID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APPID
 };
 
 // Initialize Firebase
