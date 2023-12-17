@@ -9,6 +9,7 @@ import { Input } from "@material-tailwind/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
 import {auth} from '../firebase/firebaseConfig'
+import {FaGoogle, FaMicrosoft} from 'react-icons/fa';
 
 
 export default function SignupPage({ username }) {
@@ -146,12 +147,14 @@ export default function SignupPage({ username }) {
                                     onClick={handleGoogle}
                                 >
                                     Login with Google
+                                    <FaGoogle className=" text-2xl ml-3 mt-0"/>
                                 </button>
                                 <button
                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                     onClick={handleMicrosoft}
                                 >
                                     Login with Microsoft
+                                    <FaMicrosoft className=" text-2xl ml-3 mt-0"/>
                                 </button>
                             </div>
                         )}
