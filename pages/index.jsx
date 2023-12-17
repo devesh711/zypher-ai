@@ -70,7 +70,8 @@ export default function HomePage({ username }) {
                                         Elevate Efficiency with <br />
                                         AI Excellence.
                                     </div>
-                                    <Link
+                                   
+                                   <Link
                                         className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px]"
                                         href="/signup"
                                     >
