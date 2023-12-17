@@ -62,7 +62,7 @@ export default function HomePage({ username }) {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-white dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-start">
+                    <div className="bg-white dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-center">
                         <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
                             <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px] ">
                                 <div className="flex flex-col mt-0 mb-12 md:mb-0 md:mt-32 gap-8 w-2/5 items-start">
@@ -70,8 +70,8 @@ export default function HomePage({ username }) {
                                         Elevate Efficiency with <br />
                                         AI Excellence.
                                     </div>
-                                   
-                                   <Link
+
+                                    <Link
                                         className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px]"
                                         href="/signup"
                                     >
@@ -84,6 +84,30 @@ export default function HomePage({ username }) {
                                     height={440}
                                     alt="ZYPHER"
                                 />
+                            </div>
+                        </div>
+                        <div className="flex flex-col justify-center ">
+                            <label className="flex justify-center md:mb-3 text-center">
+                                © 2023 FOZZIL .All Rights Reserved
+                            </label>
+                            <div className="flex gap-3 py-3 text-xs justify-center text-gray-700">
+                                <a
+                                    rel="noreferrer"
+                                    class="cursor-pointer font-normal underline"
+                                    target="_blank"
+                                    href=""
+                                >
+                                    Terms of use
+                                </a>
+                                <span class="text-gray-600">|</span>
+                                <a
+                                    rel="noreferrer"
+                                    class="cursor-pointer font-normal underline"
+                                    target="_blank"
+                                    href=""
+                                >
+                                    Privacy policy
+                                </a>
                             </div>
                         </div>
                     </div>
