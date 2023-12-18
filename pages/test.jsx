@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-export default function LoginPage({ username }) {
+export default function LoginPage({ email }) {
     const router = useRouter();
     const { msg } = router.query;
 
@@ -99,9 +99,9 @@ export default function LoginPage({ username }) {
 export async function getServerSideProps(context) {
     const req = context.req;
     const res = context.res;
-    var username = getCookie("username", { req, res });
+    var email = getCookie("email", { req, res });
 
-    if (username !== undefined) {
+    if (email !== undefined) {
         return {
             redirect: {
                 permanent: false,
@@ -110,5 +110,5 @@ export async function getServerSideProps(context) {
         };
     }
 
-    return { props: { username: false } };
+    return { props: { email: false } };
 }

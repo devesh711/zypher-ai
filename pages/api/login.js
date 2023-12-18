@@ -1,29 +1,37 @@
 import Cookies from "cookies";
-import clientPromise from "../../lib/mongodb";
-const { createHash } = require("node:crypto");
+import { app, auth } from "../../firebase/firebaseConfig";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { createHash } from "crypto";
 
 export default async function handler(req, res) {
-    if (req.method == "POST") {
-        const username = req.body["username"];
-        const guess = req.body["password"];
-        const client = await clientPromise;
-        const db = client.db("Users");
-        const users = await db
-            .collection("Profiles")
-            .find({ Username: username })
-            .toArray();
-        if (users.length == 0) {
-            res.redirect("/login?msg=Incorrect username or password");
-            return;
-        }
-        const user = users[0];
-        const guess_hash = createHash("sha256").update(guess).digest("hex");
-        if (guess_hash == user.Password) {
+    if (req.method === "POST") {
+        const email = req.body["email"];
+        const password = req.body["password"];
+
+        try {
+            // Hash the password
+            const hashedPassword = createHash("sha256")
+                .update(password)
+                .digest("hex");
+
+            // Sign in with Firebase Authentication
+            const userCredential = await signInWithEmailAndPassword(
+                auth,
+                email,
+                hashedPassword
+            );
+
+            // Access the user data
+            const user = userCredential.user;
+
+            // Set a cookie or perform any additional actions
             const cookies = new Cookies(req, res);
-            cookies.set("username", username);
+            cookies.set("email", email);
+
             res.redirect("/");
-        } else {
-            res.redirect("/login?msg=Incorrect username or password");
+        } catch (error) {
+            console.error("Firebase Authentication Error: ", error);
+            res.redirect("/login?msg=Incorrect email or password");
         }
     } else {
         res.redirect("/");
