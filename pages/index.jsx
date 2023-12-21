@@ -1,9 +1,12 @@
+import React from 'react';
 import Layout from "../components/layout";
 import { getCookie } from "cookies-next";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.svg";
 import zypher from "../public/zypher.svg";
+import { motion } from 'framer-motion';
+import {fadeIn} from '../variants';
 
 export default function HomePage({ email }) {
     return (
@@ -66,11 +69,17 @@ export default function HomePage({ email }) {
                         <div className="bg-[#b4d3f3] flex flex-row justify-center pt-16 w-full items-start rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
                             <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-16 pt-8 px-10 rounded-[50px] ">
                                 <div className="flex flex-col mt-0 mb-12 md:mb-0 md:mt-32 gap-8 w-2/5 items-start">
-                                    <div className="text-4xl font-primary text-left leading-[50px]">
-                                        Elevate Efficiency with <br />
-                                        AI Excellence.
-                                    </div>
-
+                                <div className="text-4xl font-primary text-left leading-[50px]">
+                                <motion.div
+                             variants={fadeIn('right' ,0.4)}
+                              initial='hidden'
+                              whileInView={'show'}
+                              viewport={{once: false , amount:0.5}}
+                              className='text-4xl'>     
+                                  Elevate Efficiency with <br />
+                                   AI Excellence.
+                            </motion.div>
+                            </div>
                                     <Link
                                         className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px]"
                                         href="/signup"
