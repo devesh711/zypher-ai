@@ -1,14 +1,15 @@
 import Layout from "../components/layout";
-import { getCookie } from "cookies-next";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import clientPromise from "../lib/mongodb";
+import { firebase } from "../firebase/firebaseConfig";
 
-export default function ProfilePage({ email, created }) {
+export default function ProfilePage({ created }) {
     return (
         <Layout pageTitle="Profile">
             <Link href="/">Home</Link>
             <br />
-            <h2>{email}'s Profile</h2>
+            <h2>Your Profile</h2>
             <p>
                 Account created at <strong>{created}</strong>
             </p>
@@ -17,10 +18,14 @@ export default function ProfilePage({ email, created }) {
 }
 
 export async function getServerSideProps(context) {
-    const req = context.req;
-    const res = context.res;
-    var email = getCookie("email", { req, res });
-    if (email == undefined) {
+    const auth = getAuth(firebase);
+    const user = await new Promise((resolve) => {
+        onAuthStateChanged(auth, (user) => {
+            resolve(user);
+        });
+    });
+
+    if (!user) {
         return {
             redirect: {
                 permanent: false,
@@ -28,15 +33,11 @@ export async function getServerSideProps(context) {
             }
         };
     }
-    const client = await clientPromise;
-    const db = client.db("Users");
-    const users = await db
-        .collection("Profiles")
-        .find({ email: email })
-        .toArray();
-    const userdoc = users[0];
-    const created = userdoc["Created"];
+
+    // Access the account creation time directly from the user object
+    const created = user.metadata.creationTime;
+
     return {
-        props: { email: email, created: created }
+        props: { created }
     };
 }
