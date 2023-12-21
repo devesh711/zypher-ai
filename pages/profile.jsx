@@ -1,4 +1,5 @@
-import Layout from "../components/layout";
+{
+    /* import Layout from "../components/layout";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -40,4 +41,5 @@ export async function getServerSideProps(context) {
     return {
         props: { created }
     };
+} */
 }
