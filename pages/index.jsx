@@ -5,15 +5,15 @@ import Image from "next/image";
 import logo from "../public/logo.svg";
 import zypher from "../public/zypher.svg";
 
-export default function HomePage({ username }) {
+export default function HomePage({ email }) {
     return (
         <Layout pageTitle="Zypher AI">
-            {username ? (
+            {email ? (
                 <>
                     <div className="bg-white dark:bg-black flex flex-col justify-end pt-8 gap-4 w-full items-start overflow-hidden noscroll">
                         <div>
                             <h2 className="text-3xl font-bold ">
-                                Hi {username}.
+                                Hi {email.slice(0, -4)}.
                             </h2>
                             <div className="mb-6">
                                 <Link
@@ -120,9 +120,9 @@ export default function HomePage({ username }) {
 export async function getServerSideProps(context) {
     const req = context.req;
     const res = context.res;
-    var username = getCookie("username", { req, res });
-    if (username == undefined) {
-        username = false;
+    var email = getCookie("email", { req, res });
+    if (email == undefined) {
+        email = false;
     }
-    return { props: { username } };
+    return { props: { email } };
 }

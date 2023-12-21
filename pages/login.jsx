@@ -11,7 +11,7 @@ import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
 
-export default function LoginPage({ username }) {
+export default function LoginPage({ email }) {
     const handleGoogle = async (e) => {
         const provider = await new GoogleAuthProvider();
         return signInWithPopup(auth, provider);
@@ -59,10 +59,10 @@ export default function LoginPage({ username }) {
                         >
                             <div className="flex w-full flex-col items-end gap-6">
                                 <Input
-                                    label="Username"
-                                    name="username"
-                                    id="username"
-                                    type="text"
+                                    label="Email"
+                                    name="email"
+                                    id="email"
+                                    type="email"
                                     color="blue"
                                     autoComplete="off"
                                     required={true}
@@ -155,9 +155,9 @@ export default function LoginPage({ username }) {
 export async function getServerSideProps(context) {
     const req = context.req;
     const res = context.res;
-    var username = getCookie("username", { req, res });
+    var email = getCookie("email", { req, res });
 
-    if (username !== undefined) {
+    if (email !== undefined) {
         return {
             redirect: {
                 permanent: false,
@@ -166,5 +166,5 @@ export async function getServerSideProps(context) {
         };
     }
 
-    return { props: { username: false } };
+    return { props: { email: false } };
 }
