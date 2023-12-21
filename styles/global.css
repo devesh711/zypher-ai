@@ -71,3 +71,8 @@ strong {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+.btn-disable {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
