@@ -4,7 +4,7 @@ const openai = new OpenAI({
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY
 });
 
-export async function createAnswer(prompt) {
+export default async function createAnswer(prompt) {
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo", // Use the GPT-3.5-turbo engine
         prompt: `
