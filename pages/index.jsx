@@ -95,7 +95,7 @@ export default function HomePage({ email }) {
                                     rel="noreferrer"
                                     class="cursor-pointer font-normal underline"
                                     target="_blank"
-                                    href=""
+                                    href="https://privacyterms.io/view/zK2RPg8f-bEvdH1oq-CoIEQC/"
                                 >
                                     Terms of use
                                 </a>
@@ -104,7 +104,7 @@ export default function HomePage({ email }) {
                                     rel="noreferrer"
                                     class="cursor-pointer font-normal underline"
                                     target="_blank"
-                                    href=""
+                                    href="https://privacyterms.io/view/nE9hLqwo-Pg7WoDWg-oewWNc/"
                                 >
                                     Privacy policy
                                 </a>
