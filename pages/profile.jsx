@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { firebase } from "../firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 
 export default function ProfilePage({ created }) {
     return (
@@ -18,7 +18,7 @@ export default function ProfilePage({ created }) {
 }
 
 export async function getServerSideProps(context) {
-    const auth = getAuth(firebase);
+    const auth = getAuth();
     const user = await new Promise((resolve) => {
         onAuthStateChanged(auth, (user) => {
             resolve(user);
