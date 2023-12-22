@@ -8,6 +8,9 @@ import zypher from "../public/zypher.svg";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { UserAuth } from "./context/AuthContext";
+import { FaClockRotateLeft } from "react-icons/fa6";
+
+
 
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
@@ -33,12 +36,12 @@ export default function HomePage({ email }) {
         <Layout pageTitle="Zypher AI">
             {loading ? null : !!user || email ? (
                 <>
-                    <div className="bg-white dark:bg-black flex flex-col justify-end pt-8 gap-4 w-full items-start overflow-hidden noscroll">
+                    <div className="bg-white dark:bg-black flex flex-col justify-center pt-8 gap-4 w-full items-center overflow-hidden noscroll ">
                         <div>
-                            <h2 className="text-3xl font-bold ">
+                            <h2 className="text-3xl font-bold items-center justify-center ">
                                 Hi {!!user ? user.displayName : email}.
                             </h2>
-                            <div className="mb-6">
+                            <div className="mb-6 ">
                                 <Link
                                     className="px-10 py-4 rounded font-bold ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white "
                                     href="/profile"
@@ -49,7 +52,7 @@ export default function HomePage({ email }) {
                             <br />
                             <div className="mb-6">
                                 <Link
-                                    className="px-10 py-4 rounded ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white"
+                                    className="px-10 py-4 rounded ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white "
                                     href="/api/logout"
                                     onClick={handleSignOut}
                                 >
@@ -58,49 +61,23 @@ export default function HomePage({ email }) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col h-screen">
-                        <div className="flex-1 p-4 overflow-y-auto bg-gray-100">
-                            {/* {messages.map((message, index) => (
-                                <div
-                                    key={index}
-                                    className={`mb-4 ${
-                                        message.sender === "user"
-                                            ? "text-right"
-                                            : "text-left"
-                                    }`}
-                                >
-                                    <span
-                                        className={`px-3 py-2 rounded ${
-                                            message.sender === "user"
-                                                ? "bg-blue-500 text-white"
-                                                : "bg-gray-300"
-                                        }`}
-                                    >
-                                        {message.text}
-                                    </span>
-                                </div>
-                            ))} */}
-                        </div>
-                        <div className="p-4 bg-gray-200">
-                            <div className="flex">
-                                <input
-                                    type="text"
-                                    className="flex-1 px-3 py-2 mr-2 border rounded"
-                                    placeholder="Type your message..."
-                                    // value={newMessage}
-                                    //     onChange={(e) =>
-                                    //         setNewMessage(e.target.value)
-                                    //     }
-                                />
-                                <button
-                                    className="px-4 py-2 bg-blue-500 text-white rounded"
-                                    // onClick={handleSendMessage}
-                                >
-                                    Send
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+
+                  
+
+                    <div className="bg-blue-50 min-h-screen flex w-auto rounded-3xl items-start justify-center">
+                    <input
+            type="text"
+            placeholder="What you are looking for today ?                                                                                                                                                            > "
+         
+            className="text-sm bg-black p-4 text-white mb-4 rounded-full w-3/5 mt-12 font-style: italic items-center justify-center"
+          />
+          {/* <FaGreaterThan  className="text-white mt-11 mr-1"/> */}
+          <FaClockRotateLeft className=" bg-black text-white rounded-3xl w-14 h-11 mt-12 ml-4"/>
+
+      
+    </div>
+
+                  
                 </>
             ) : (
                 <>
@@ -114,14 +91,14 @@ export default function HomePage({ email }) {
                             />
                             <div className="flex flex-row mr-0 sm:mr-10 mt-1 gap-6 ml-0 sm:ml-auto w-1/2 sm:w-1/4 items-center">
                                 <Link
-                                    className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg"
+                                    className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
                                     href="/login"
                                 >
                                     Login
                                 </Link>
 
                                 <Link
-                                    className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg"
+                                    className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
                                     href="/signup"
                                 >
                                     Signup
@@ -149,7 +126,7 @@ export default function HomePage({ email }) {
                                         </motion.div>
                                     </div>
                                     <Link
-                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px]"
+                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
                                         href="/signup"
                                     >
                                         Sign up for free
