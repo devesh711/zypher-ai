@@ -10,8 +10,6 @@ import { fadeIn } from "../variants";
 import { UserAuth } from "./context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 
-
-
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
     const [loading, setLoading] = useState(true);
@@ -62,22 +60,15 @@ export default function HomePage({ email }) {
                         </div>
                     </div>
 
-                  
-
                     <div className="bg-blue-50 min-h-screen flex w-auto rounded-3xl items-start justify-center">
-                    <input
-            type="text"
-            placeholder="What you are looking for today ?                                                                                                                                                            > "
-         
-            className="text-sm bg-black p-4 text-white mb-4 rounded-full w-3/5 mt-12 font-style: italic items-center justify-center"
-          />
-          {/* <FaGreaterThan  className="text-white mt-11 mr-1"/> */}
-          <FaClockRotateLeft className=" bg-black text-white rounded-3xl w-14 h-11 mt-12 ml-4"/>
-
-      
-    </div>
-
-                  
+                        <input
+                            type="text"
+                            placeholder="What you are looking for today ?                                                                                                                                                            > "
+                            className="text-sm bg-black p-4 text-white mb-4 rounded-full w-3/5 mt-12 font-style: italic items-center justify-center"
+                        />
+                        {/* <FaGreaterThan  className="text-white mt-11 mr-1"/> */}
+                        <FaClockRotateLeft className=" bg-black text-white rounded-3xl w-14 h-11 mt-12 ml-4" />
+                    </div>
                 </>
             ) : (
                 <>
