@@ -7,7 +7,7 @@ import logo from "../public/logo.svg";
 import zypher from "../public/zypher.svg";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import { UserAuth } from "./context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 
 export default function HomePage({ email }) {
@@ -40,13 +40,17 @@ export default function HomePage({ email }) {
                                 Hi {!!user ? user.displayName : email}.
                             </h2>
                             <div className="mb-6 ">
+
                                 <Link
                                     className="px-10 py-4 rounded font-bold ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white "
                                     href="/profile"
                                 >
+                                   
                                     Profile
                                 </Link>
+                                
                             </div>
+                            
                             <br />
                             <div className="mb-6">
                                 <Link
@@ -66,7 +70,7 @@ export default function HomePage({ email }) {
                             placeholder="What you are looking for today ?                                                                                                                                                            > "
                             className="text-sm bg-black p-4 text-white mb-4 rounded-full w-3/5 mt-12 font-style: italic items-center justify-center"
                         />
-                        {/* <FaGreaterThan  className="text-white mt-11 mr-1"/> */}
+                     
                         <FaClockRotateLeft className=" bg-black text-white rounded-3xl w-14 h-11 mt-12 ml-4" />
                     </div>
                 </>

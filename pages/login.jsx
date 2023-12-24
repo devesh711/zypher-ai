@@ -12,7 +12,7 @@ import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
 import { get } from "https";
-import { UserAuth } from "./context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 import { redirect } from "next/dist/server/api-utils";
 
 export default function LoginPage({ email }) {
