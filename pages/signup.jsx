@@ -10,7 +10,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
 import { auth } from "../firebase/firebaseConfig";
 import { FaGoogle, FaMicrosoft } from "react-icons/fa";
-import { UserAuth } from "./context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 
 export default function SignupPage({ email }) {
     const { user, googleSignIn, logOut } = UserAuth();

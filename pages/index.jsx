@@ -7,12 +7,13 @@ import logo from "../public/logo.svg";
 import zypher from "../public/zypher.svg";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import { UserAuth } from "./context/AuthContext";
+import { UserAuth } from "../context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
     const [loading, setLoading] = useState(true);
+    const [message, setMessage] = useState("loading");
 
     const handleSignOut = async () => {
         try {
@@ -21,6 +22,16 @@ export default function HomePage({ email }) {
             console.log(error);
         }
     };
+
+    useEffect(() => {
+        fetch("http://localhost:8080/api/home")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setMessage(data.message);
+                console.log(message);
+            });
+    }, []);
 
     useEffect(() => {
         const checkAuthentication = async () => {
@@ -82,14 +93,14 @@ export default function HomePage({ email }) {
                             />
                             <div className="flex flex-row mr-0 sm:mr-10 mt-1 gap-6 ml-0 sm:ml-auto w-1/2 sm:w-1/4 items-center">
                                 <Link
-                                    className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
+                                    className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300 "
                                     href="/login"
                                 >
                                     Login
                                 </Link>
 
                                 <Link
-                                    className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
+                                    className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
                                     href="/signup"
                                 >
                                     Signup
@@ -117,7 +128,7 @@ export default function HomePage({ email }) {
                                         </motion.div>
                                     </div>
                                     <Link
-                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:bg-[#5e2d8a] shadow-md shadow-blue-700/70"
+                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
                                         href="/signup"
                                     >
                                         Sign up for free
