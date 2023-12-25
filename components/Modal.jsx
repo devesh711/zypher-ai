@@ -13,14 +13,11 @@ const Modal = ({ isVisible, onClose, children }) => {
             onClick={handleClose}
         >
             <div className="w-[600px] flex flex-col">
-                <button
-                    className="text-gray text-xl place-self-end"
-                    onClick={() => onClose()}
-                >
+                <button className="text-gray text-xl" onClick={() => onClose()}>
                     X
                 </button>
                 {/* <Image
-               width={205}
+               width={205}ṭ
                height={164}
                alt="user"
                src={Image} */}

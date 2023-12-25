@@ -47,20 +47,28 @@ export async function getServerSideProps(context) {
 import Image from "next/image";
 import React, { Fragment, useState } from "react";
 import Modal from "../components/Modal";
+import guest from "../public/guest.svg";
+import { UserAuth } from "../context/AuthContext";
 
 function profile() {
     const [showModal, setShowModal] = useState(false);
+    const { user } = UserAuth();
     // const [showModal1, setShowModal1]= useState(false);
     return (
         <Fragment>
             <div className="p-10 text-center">
                 <h1 className="text-3xl mb-5">Profile</h1>
                 <Image
-                    src="/public/user.png"
+                    src={
+                        !user
+                            ? guest
+                            : !user.displayname
+                            ? guest
+                            : user.displayname
+                    }
                     alt="Z"
                     height={100}
                     width={100}
-                    className="outline outline-black outline-1 "
                     onClick={() => setShowModal(true)}
                 />
             </div>

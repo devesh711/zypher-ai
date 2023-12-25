@@ -4,6 +4,7 @@ import { getCookie } from "cookies-next";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.svg";
+import guest from "../public/guest.svg";
 import zypher from "../public/zypher.svg";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
@@ -14,8 +15,8 @@ import Modal from "../components/Modal";
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
     const [loading, setLoading] = useState(true);
-    const [message, setMessage] = useState("loading");
     const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("loading");
 
     const handleSignOut = async () => {
         try {
@@ -43,6 +44,7 @@ export default function HomePage({ email }) {
     useEffect(() => {
         const checkAuthentication = async () => {
             await new Promise((resolve) => setTimeout(resolve, 1000));
+
             setLoading(false);
         };
         checkAuthentication();
@@ -52,31 +54,43 @@ export default function HomePage({ email }) {
         <Layout pageTitle="Zypher AI">
             {loading ? null : !!user || email ? (
                 <>
-                    <div className="bg-white dark:bg-black flex flex-col justify-center pt-8 gap-4 w-full items-center overflow-hidden noscroll ">
-                        <div>
-                            <h2 className="text-3xl font-bold items-center justify-center ">
-                                Hi {!!user ? user.displayName : email}.
-                            </h2>
-                            <div className="mb-6 ">
-                                <Link
-                                    className="px-10 py-4 rounded font-bold ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white "
-                                    href="/profile"
-                                >
-                                    Profile
-                                </Link>
-                            </div>
+                    <div className="bg-white dark:bg-black flex flex-col justify-center py-2 gap-4 w-full items-end overflow-hidden noscroll ">
+                        <Fragment>
+                            <Image
+                                src={guest}
+                                alt="Y"
+                                className="mr-5"
+                                height={50}
+                                width={50}
+                                onClick={() => setShowModal(true)}
+                            />
+                            <Modal
+                                isVisible={showModal}
+                                onClose={() => setShowModal(false)}
+                            >
+                                {/* <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"> */}
+                                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                        Hello
+                                    </h1>
+                                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                        {!!user ? user.displayName : email}
+                                    </h1>
+                                    <p>{!!user ? user.email : email}</p>
 
-                            <br />
-                            <div className="mb-6">
-                                <Link
-                                    className="px-10 py-4 rounded ease-in text-black duration-150 hover:bg-[#5b2d90] hover:text-white "
-                                    href="/api/logout"
-                                    onClick={handleSignOut}
-                                >
-                                    Logout
-                                </Link>
-                            </div>
-                        </div>
+                                    <div className="mb-6">
+                                        <Link
+                                            className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] px-4 py-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300  "
+                                            href="/api/logout"
+                                            onClick={handleSignOut}
+                                        >
+                                            Logout
+                                        </Link>
+                                    </div>
+                                </div>
+                                {/* </div> */}
+                            </Modal>
+                        </Fragment>
                     </div>
 
                     <div className="bg-blue-50 min-h-screen flex w-auto rounded-3xl items-start justify-center">
