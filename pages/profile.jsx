@@ -44,9 +44,8 @@ export async function getServerSideProps(context) {
 } 
 */
 }
-
+import Image from "next/image";
 import React, { Fragment, useState } from "react";
-// import Image from '../public/Default_pfp.png';
 import Modal from "../components/Modal";
 
 function profile() {
@@ -56,12 +55,14 @@ function profile() {
         <Fragment>
             <div className="p-10 text-center">
                 <h1 className="text-3xl mb-5">Profile</h1>
-                <button
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center mr-5"
+                <Image
+                    src="/public/user.png"
+                    alt="Z"
+                    height={100}
+                    width={100}
+                    className="outline outline-black outline-1 "
                     onClick={() => setShowModal(true)}
-                >
-                    Image
-                </button>
+                />
             </div>
             <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
                 {/* <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"> */}

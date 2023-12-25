@@ -1,30 +1,34 @@
-import React from 'react'
+import React from "react";
 // import Image from ""
 
-const Modal = ({isVisible, onClose,children}) => {
-  if(!isVisible)
-  return null;
+const Modal = ({ isVisible, onClose, children }) => {
+    if (!isVisible) return null;
 
-  const handleClose=(e)=> {
-    if(e.target.id==='wrapper') onClose();
-  }
-  return (
-    <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'onClick={handleClose}>
-        <div className='w-[600px] flex flex-col'>
-            <button className='text-white text-xl place-self-end'onClick={() => 
-              onClose()}>X</button>
-             {/* <Image
+    const handleClose = (e) => {
+        if (e.target.id === "wrapper") onClose();
+    };
+    return (
+        <div
+            className="fixed inset-0 bg-transparent bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
+            onClick={handleClose}
+        >
+            <div className="w-[600px] flex flex-col">
+                <button
+                    className="text-gray text-xl place-self-end"
+                    onClick={() => onClose()}
+                >
+                    X
+                </button>
+                {/* <Image
                width={205}
                height={164}
                alt="user"
                src={Image} */}
-                          
-            <div className='bg-white p-2 rounded'>
-             {children}
+
+                <div className="bg-white p-2 rounded">{children}</div>
             </div>
         </div>
-    </div>
-  );
+    );
 };
 
-export default Modal
+export default Modal;
