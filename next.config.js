@@ -1,24 +1,22 @@
+// next.config.js
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
     reactStrictMode: true,
     images: {
-        disableStaticImages: true,
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "lh3.googleusercontent.com",
-                port: "",
-                pathname: "/a/"
+                hostname: "*.googleusercontent.com"
             }
-        ]
-    }
+        ],
+        unoptimized: true,
+        disableStaticImages: true
+    },
+    ...require("next-images")({
+        webpack(config, options) {
+            // You can customize the webpack configuration here if needed
+            return config;
+        }
+    })
 };
-
-module.exports = nextConfig;
-
-const withImages = require("next-images");
-module.exports = withImages({
-    webpack(config, options) {
-        return config;
-    }
-});

@@ -7,11 +7,12 @@ import logo from "../public/logo.svg";
 import guest from "../public/guest.svg";
 import zypher from "../public/zypher.svg";
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "../components/variants";
 import { UserAuth } from "../context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import Modal from "../components/Modal";
 import Profile from "../components/Profile";
+import Menu from "../components/Menu";
 
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
@@ -55,26 +56,38 @@ export default function HomePage({ email }) {
         <Layout pageTitle="Zypher AI">
             {loading ? null : !!user || email ? (
                 <>
-                    <div className="bg-white dark:bg-black flex flex-col justify-center py-2 gap-4 w-full items-end overflow-hidden noscroll ">
-                        <Fragment>
-                            <Image
-                                src={guest}
-                                alt="Y"
-                                className="mr-5"
-                                height={50}
-                                width={50}
-                                onClick={() => setShowModal(true)}
-                            />
-                            <Modal
-                                isVisible={showModal}
-                                onClose={() => setShowModal(false)}
-                            >
-                                <Profile
-                                    User={user}
-                                    handleSignOut={handleSignOut}
-                                ></Profile>
-                            </Modal>
-                        </Fragment>
+                    <div className="bg-white dark:bg-black flex flex-col sm:flex-row items-center justify-between h-20 z-10 ml-0 sm:ml-10 pb-2 overflow-hidden noscroll ">
+                        <div className="flex items-center gap-2">
+                            <Menu></Menu>
+                        </div>
+                        <div class="absolute left-1/2 -translate-x-1/2"></div>
+                        <div className="flex gap-2 pr-1">
+                            <Fragment>
+                                <Image
+                                    src={
+                                        !!user
+                                            ? user.photoURL
+                                                ? user.photoURL
+                                                : guest
+                                            : guest
+                                    }
+                                    alt="Y"
+                                    className="mr-5 rounded-full transition-transform active:scale-75 "
+                                    height={50}
+                                    width={50}
+                                    onClick={() => setShowModal(true)}
+                                />
+                                <Modal
+                                    isVisible={showModal}
+                                    onClose={() => setShowModal(false)}
+                                >
+                                    <Profile
+                                        User={user}
+                                        handleSignOut={handleSignOut}
+                                    ></Profile>
+                                </Modal>
+                            </Fragment>
+                        </div>
                     </div>
 
                     <div className="bg-blue-50 min-h-screen flex w-auto rounded-3xl items-start justify-center">
