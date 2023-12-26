@@ -11,6 +11,7 @@ import { fadeIn } from "../variants";
 import { UserAuth } from "../context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import Modal from "../components/Modal";
+import Profile from "../components/Profile";
 
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
@@ -68,27 +69,10 @@ export default function HomePage({ email }) {
                                 isVisible={showModal}
                                 onClose={() => setShowModal(false)}
                             >
-                                {/* <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700"> */}
-                                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                        Hello
-                                    </h1>
-                                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                        {!!user ? user.displayName : email}
-                                    </h1>
-                                    <p>{!!user ? user.email : email}</p>
-
-                                    <div className="mb-6">
-                                        <Link
-                                            className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] px-4 py-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300  "
-                                            href="/api/logout"
-                                            onClick={handleSignOut}
-                                        >
-                                            Logout
-                                        </Link>
-                                    </div>
-                                </div>
-                                {/* </div> */}
+                                <Profile
+                                    User={user}
+                                    handleSignOut={handleSignOut}
+                                ></Profile>
                             </Modal>
                         </Fragment>
                     </div>
