@@ -9,7 +9,7 @@ import {
 
 export default function Menu() {
     const [selectedKeys, setSelectedKeys] = React.useState(
-        new Set(["ZYPHER-CHAT"])
+        new Set(["Zypher-Chat"])
     );
 
     const selectedValue = React.useMemo(
@@ -20,7 +20,11 @@ export default function Menu() {
     return (
         <Dropdown>
             <DropdownTrigger>
-                <Button variant="faded" className="capitalize">
+                <Button
+                    color="primary"
+                    variant="faded"
+                    className="capitalize dark"
+                >
                     {selectedValue}
                 </Button>
             </DropdownTrigger>
@@ -32,7 +36,7 @@ export default function Menu() {
                 selectedKeys={selectedKeys}
                 onSelectionChange={setSelectedKeys}
             >
-                <DropdownItem key="zypher-chat">ZYPHER-CHAT</DropdownItem>
+                <DropdownItem key="zypher-chat">Zypher-Chat</DropdownItem>
                 <DropdownItem key="heart">Heart</DropdownItem>
             </DropdownMenu>
         </Dropdown>
