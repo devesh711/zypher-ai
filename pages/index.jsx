@@ -12,13 +12,28 @@ import { UserAuth } from "../context/AuthContext";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import Modal from "../components/Modal";
 import Profile from "../components/Profile";
-import Menu from "../components/Menu";
+import Heart from "../components/Heart";
+import {
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownItem,
+    Button
+} from "@nextui-org/react";
 
 export default function HomePage({ email }) {
     const { user, logOut } = UserAuth();
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [message, setMessage] = useState("loading");
+    const [selectedKeys, setSelectedKeys] = React.useState(
+        new Set(["Zypher-Chat"])
+    );
+
+    const selectedValue = React.useMemo(
+        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+        [selectedKeys]
+    );
 
     const handleSignOut = async () => {
         try {
@@ -27,7 +42,9 @@ export default function HomePage({ email }) {
             console.log(error);
         }
     };
-
+    const handleChat = (e) => {
+        e.preventDefault();
+    };
     // useEffect(() => {
     //     try {
     //         fetch("http://localhost:8080/api/home")
@@ -58,7 +75,32 @@ export default function HomePage({ email }) {
                 <>
                     <div className="bg-white dark:bg-black flex flex-col sm:flex-row items-center justify-between h-20 z-10 ml-0 sm:ml-10 pb-2 overflow-hidden noscroll ">
                         <div className="flex items-center gap-2">
-                            <Menu></Menu>
+                            <Dropdown>
+                                <DropdownTrigger>
+                                    <Button
+                                        color="primary"
+                                        variant="faded"
+                                        className="capitalize dark"
+                                    >
+                                        {selectedValue}
+                                    </Button>
+                                </DropdownTrigger>
+                                <DropdownMenu
+                                    aria-label="Single selection example"
+                                    variant="flat"
+                                    disallowEmptySelection
+                                    selectionMode="single"
+                                    selectedKeys={selectedKeys}
+                                    onSelectionChange={setSelectedKeys}
+                                >
+                                    <DropdownItem key="zypher-chat">
+                                        Zypher-Chat
+                                    </DropdownItem>
+                                    <DropdownItem key="heart">
+                                        Heart{" "}
+                                    </DropdownItem>
+                                </DropdownMenu>
+                            </Dropdown>
                         </div>
                         <div class="absolute left-1/2 -translate-x-1/2"></div>
                         <div className="flex gap-2 pr-1">
@@ -75,6 +117,7 @@ export default function HomePage({ email }) {
                                     className="mr-5 rounded-full transition-transform active:scale-75 "
                                     height={50}
                                     width={50}
+                                    title="Profile"
                                     onClick={() => setShowModal(true)}
                                 />
                                 <Modal
@@ -89,15 +132,34 @@ export default function HomePage({ email }) {
                             </Fragment>
                         </div>
                     </div>
+                    <div className=" bg-[#b4d3f3] min-h-screen justify-center rounded-3xl">
+                        {selectedValue === "zypher-chat" ? (
+                            <div className="bg-[#b4d3f3] flex w-auto rounded-3xl items-start justify-center">
+                                <form className="flex bg-black p-4 mb-4 rounded-full w-3/5 mt-12 items-start justify-start ">
+                                    <input
+                                        type="text"
+                                        placeholder="What you are looking for today ?"
+                                        className="text-sm w-11/12 bg-black outline-non border-none active:border-none focus:border-none text-white   font-Inter "
+                                    />
+                                    <input
+                                        type="submit"
+                                        className="text-white pl-[6%] "
+                                        value=">"
+                                        onClick={handleChat}
+                                    />
+                                </form>
 
-                    <div className="bg-blue-50 min-h-screen flex w-auto rounded-3xl items-start justify-center">
-                        <input
-                            type="text"
-                            placeholder="What you are looking for today ?                                                                                                                                                            > "
-                            className="text-sm bg-black p-4 text-white mb-4 rounded-full w-3/5 mt-12 font-style: italic items-center justify-center"
-                        />
-
-                        <FaClockRotateLeft className=" bg-black text-white rounded-3xl w-14 h-11 mt-12 ml-4" />
+                                <FaClockRotateLeft
+                                    className=" bg-black text-white rounded-full p-2 w-14 h-14 mt-12 ml-4 cursor-pointer"
+                                    title="History"
+                                />
+                            </div>
+                        ) : null}
+                        {selectedValue === "heart" ? (
+                            <div className="pt-4">
+                                <Heart></Heart>
+                            </div>
+                        ) : null}
                     </div>
                 </>
             ) : (
