@@ -4,7 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import logo from "../public/logo.svg";
+import zypher from '../public/zypher.svg'
 import Image from "next/image";
+// import bg from "../public/bg.svg";
 import { Button, Input } from "@material-tailwind/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getAuth, linkWithPopup, OAuthProvider } from "firebase/auth";
@@ -43,51 +45,105 @@ export default function SignupPage({ email }) {
     return (
         <Layout pageTitle="Signup">
             {!user ? (
-                <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4 ">
+                <div className="bg-gradient-to-r from-[#00050B] to-[#4E5C6C] min-h-screen flex flex-col w-full items-center pb-16 px-4 ">
                     <div className="flex flex-col gap-0 w-full items-center md:w-2/5 lg:w-1/3">
-                        <div
-                            id="Welcome"
-                            className="text-center text-2xl sm:text-4xl font-['Inter'] font-bold text-[#6dadec] pt-8"
-                        >
-                            Welcome{" "}
-                        </div>
 
-                        {/* <div className="text-center"></div> */}
-                        <Link className="cursor-default" href="/">
+                    {/* <div className="flex flex-row mr-0 sm:mr-10 mt-1 gap-6 ml-0 sm:ml-auto w-1/2 sm:w-1/4 items-center"> */}
+                        <Link 
+                          className="flex flex-col sm:flex-row items-center ml-0 sm:ml-10"
+                          href="/">
+                            
                             <Image
-                                src={logo}
-                                width={205}
-                                height={164}
+                                src={zypher}
+                                width={155}
+                                height={144}
                                 alt="ZYPHER"
                             />
                         </Link>
+                        {/* </div> */}
+
+                        <div
+                            id="Welcome"
+                            className="text-center text-xl sm:text-3xl font-['Inter'] font-bold text-[#FFFFFF] pt-10 pb-12"
+                        >
+                            Sign Up{" "}
+                        </div>
+
+                        {/* <div className="text-center"></div> */}
+                       
                         {msg ? <h3 className="red ">{msg}</h3> : <></>}
 
-                        <div className="flex flex-col gap-6 w-full items-start">
+                        <div className="flex flex-col gap-6 w-full items-start ">
                             <form
                                 action="/api/signup"
                                 method="POST"
-                                className="flex flex-col justify-between gap-5 w-full items-start"
+                                className="flex flex-col justify-between gap-8 w-full items-start"
                             >
-                                <div className="flex w-full flex-col items-end gap-6">
+                                <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
                                     <Input
-                                        label="Email"
+                                        label="User Name"
+                                        name="username"
+                                        id="username"
+                                        type="username"
+                                        color="white"
+                                        autoComplete="off"
+                                        required={true}
+                                    />
+                                    </div>
+                                    <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
+                                    <Input
+                                        label="Email Address"
                                         name="email"
                                         id="email"
                                         type="email"
-                                        color="blue"
+                                        color="white"
+                                        autoComplete="off"
+                                        required={true}
+                                    />
+                                     </div>
+                                     <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
+                                
+                                    <Input
+                                        label="Create Password"
+                                        name="password"
+                                        id="password"
+                                        type="password"
+                                        color="white"
+                                        autoComplete="off"
+                                        required={true}
+                                    />
+                                     </div>
+                                     <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
+                                    <Input
+                                        label="Confirm Password"
+                                        name="password"
+                                        id="password"
+                                        type="password"
+                                        color="white"
                                         autoComplete="off"
                                         required={true}
                                     />
                                 </div>
+                               
                                 {!showPasswordFields && (
                                     <>
-                                        <button
-                                            className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                            onClick={handleContinue}
+                                        {/* <button
+                                            className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-black border-solid bg-[#ffff] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                            type="submit"
+                                            onClick={handleContinue}  
                                         >
                                             Continue
-                                        </button>
+                                        </button> */}
+                                        <Link
+                                         className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-black border-solid bg-[#ffff] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                         type="submit"
+                                         value="Login"
+                                                href="/"
+                                            >
+                                                Continue
+                                            </Link>
+
+
                                         <div className="flex flex-row gap-2 w-full items-center justify-center">
                                             <div className="text-center text-base font-light sm:font-normal font-['Inter'] text-white">
                                                 Already have an account?
@@ -96,7 +152,7 @@ export default function SignupPage({ email }) {
                                                 className="text-center text-base font-light sm:font-normal font-['Inter'] text-[#6dadec]"
                                                 href="/login"
                                             >
-                                                log in
+                                                Log in
                                             </Link>
                                         </div>
                                     </>
@@ -104,7 +160,7 @@ export default function SignupPage({ email }) {
                                 {showPasswordFields && (
                                     <>
                                         <br />
-                                        <Input
+                                        {/* <Input
                                             minLength="5"
                                             type="password"
                                             label="Password"
@@ -124,46 +180,16 @@ export default function SignupPage({ email }) {
                                             color="blue"
                                             autoComplete="off"
                                             required={true}
-                                        />
-                                        <br />
-                                        <input
-                                            className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
+                                        /> */}
+                                       
+                                       <input
+                                            className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid bg-[#ffff] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
                                             type="submit"
                                             value="Signup"
                                         />
                                     </>
                                 )}
                             </form>
-                            {!showPasswordFields && (
-                                <div className="flex flex-col justify-between gap-5 w-full items-start">
-                                    {/* Add Google and Apple authentication options */}
-                                    <div className="relative flex flex-row justify-center w-full items-start">
-                                        <div
-                                            id="Line"
-                                            className="border-solid border-[#6dadec] w-full h-px absolute top-2 left-0 border-t border-b-0 border-x-0"
-                                        />
-                                        <div className="w-12 h-3 bg-[#152335] absolute top-1" />
-                                        <div className="text-center text-base font-['Inter'] text-white relative">
-                                            OR
-                                        </div>
-                                    </div>
-                                    <button
-                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                        onClick={handleGoogle}
-                                    >
-                                        Login with Google
-                                        <FaGoogle className=" text-2xl ml-3 mt-0" />
-                                    </button>
-                                    <button
-                                        disabled="true"
-                                        className="btn-disable text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
-                                        onClick={handleMicrosoft}
-                                    >
-                                        Login with Microsoft
-                                        <FaMicrosoft className=" text-2xl ml-3 mt-0" />
-                                    </button>
-                                </div>
-                            )}
                         </div>
                     </div>
                 </div>

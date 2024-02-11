@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { use, useState } from "react";
 import logo from "../public/logo.svg";
+import zypher from '../public/zypher.svg'
 import Image from "next/image";
 import { Input } from "@material-tailwind/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -46,34 +47,50 @@ export default function LoginPage({ email }) {
     return (
         <Layout pageTitle="Login">
             {!user ? (
-                <div className="bg-[#152335] min-h-screen flex flex-col w-full items-center pb-16 px-4">
+                  <div className="bg-gradient-to-r from-[#00050B] to-[#4E5C6C] min-h-screen flex flex-col w-full items-center pb-16 px-4 ">
                     <div className="flex flex-col gap-0 w-full items-center md:w-2/5 lg:w-1/3">
-                        <div className="text-center text-2xl sm:text-4xl font-Inter font-bold text-[#6dadec] pt-12">
-                            Welcome Back
-                        </div>
-                        <Link className="cursor-default" href="/">
+
+                    <Link className=" flex justify-start cursor-default" href="/">
                             <Image
-                                src={logo}
-                                width={205}
-                                height={164}
+                            className="flex justify-start"
+                                src={zypher}
+                                width={155}
+                                height={144}
                                 alt="ZYPHER"
                             />
                         </Link>
+
+                        <div 
+                         className="text-center text-xl sm:text-3xl font-['Inter'] font-bold text-[#FFFFFF] pt-8 pb-6">
+                            Log In
+                        </div>
+                       
                         {msg ? <h3 className="red">{msg}</h3> : <></>}
 
                         <div className="flex flex-col gap-6 w-full items-start">
                             <form
-                                className="flex flex-col justify-between gap-5 w-full items-start"
+                                className="flex flex-col justify-between gap-8 w-full items-start"
                                 action="/api/login"
                                 method="POST"
                             >
-                                <div className="flex w-full flex-col items-end gap-6">
+                              <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
                                     <Input
-                                        label="Email"
+                                        label="Email Address"
                                         name="email"
                                         id="email"
                                         type="email"
-                                        color="blue"
+                                        color="white"
+                                        autoComplete="off"
+                                        required={true}
+                                    />
+                                    </div>
+                                    <div className="flex w-full flex-col items-end gap-6 border-2 rounded-[15px]">
+                                    <Input
+                                        label="Password"
+                                        name="password"
+                                        id="password"
+                                        type="password"
+                                        color="white"
                                         autoComplete="off"
                                         required={true}
                                     />
@@ -81,7 +98,7 @@ export default function LoginPage({ email }) {
                                 {!showPasswordFields && (
                                     <>
                                         <button
-                                            className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                           className="text-center text-lg sm:text-xl font-['Inter'] font-semibold text-black border-solid bg-[#ffff] flex flex-row justify-center pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                             onClick={handleContinue}
                                         >
                                             Continue
@@ -115,7 +132,7 @@ export default function LoginPage({ email }) {
                                         <br />
 
                                         <input
-                                            className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#6dadec] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
+                                            className="cursor-pointer text-center text-xl font-['Inter'] font-semibold text-white border-solid border-[#ffff] bg-[#6dadec] flex flex-row justify-center w-full h-20 items-start border-2 rounded-[30px]"
                                             type="submit"
                                             value="Login"
                                         />
@@ -130,15 +147,15 @@ export default function LoginPage({ email }) {
                                     <div className="relative flex flex-row justify-center w-full items-start">
                                         <div
                                             id="Line"
-                                            className="border-solid border-[#6dadec] w-full h-px absolute top-2 left-0 border-t border-b-0 border-x-0"
+                                            className="border-solid border-[#ffff] w-full h-px absolute top-2 left-0 border-t border-b-0 border-x-0"
                                         />
-                                        <div className="w-12 h-3 bg-[#152335] absolute top-1" />
+                                        <div className="w-14 h-4 bg-[#4E5C6C] absolute top-1 opacity-2" />
                                         <div className="text-center text-base font-['Inter'] text-white relative">
                                             OR
                                         </div>
                                     </div>
                                     <button
-                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#ffff] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                         onClick={handleGoogle}
                                     >
                                         Login with Google
@@ -146,7 +163,7 @@ export default function LoginPage({ email }) {
                                     </button>
 
                                     <button
-                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#6dadec] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
+                                        className="text-center text-lg sm:text-xl font-['Inter'] font-medium text-white border-solid border-[#ffff] bg-[rgba(217,_217,_217,_0)] flex flex-row justify-center ml-px pt-6 w-full h-20 items-start border-2 rounded-[30px]"
                                         onClick={handleMicrosoft}
                                     >
                                         Login with Microsoft

@@ -164,36 +164,54 @@ export default function HomePage({ email }) {
                 </>
             ) : (
                 <>
-                    <div className="bg-white dark:bg-[#1d1d1f] max-w-8xl mx-auto">
+                    <div className="bg-black dark:bg-[#1d1d1f] max-w-8xl mx-auto">
                         <div className="flex flex-col sm:flex-row items-center ml-0 sm:ml-10 pb-4">
                             <Image
                                 src={zypher}
-                                width={284}
-                                height={60}
+                                width={150}
+                                height={40}
                                 alt="ZYPHER"
                             />
-                            <div className="flex flex-row mr-0 sm:mr-10 mt-1 gap-6 ml-0 sm:ml-auto w-1/2 sm:w-1/4 items-center">
-                                <Link
-                                    className="text-xl font-sans font-bold text-[#fffefe] bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300 "
+                            <div className="flex flex-row mr-0 sm:mr-14 mt-1 gap-4 ml-0 sm:ml-auto w-1/2 sm:w-1/3 items-center">
+                            <Link
+                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
                                     href="/login"
                                 >
-                                    Login
+                                   Pricing
+                                </Link>
+                                <Link
+                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
+                                    href="/login"
+                                >
+                                    Help
+                                </Link>
+                                <Link
+                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg"
+                                    href="/login"
+                                >
+                                    Solution
+                                </Link>
+                                <Link
+                                    className="text-xl font-sans font-bold text-[#fffefe] bg-black border-3 border-sky-500 flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300 "
+                                    href="/login"
+                                >
+                                    Log In
                                 </Link>
 
                                 <Link
-                                    className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-2 w-1/2 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
+                                    className="text-xl font-sans font-bold text-black bg-[#ffff] flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
                                     href="/signup"
                                 >
-                                    Signup
+                                    Sign Up
                                 </Link>
                             </div>
                         </div>
                     </div>
-                    <div className="bg-white dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-center">
-                        <div className="bg-[#b4d3f3] flex flex-col justify-center pt-16 w-full items-center rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
+                    <div className="bg-black dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-center">
+                        <div className="bg-black flex flex-col justify-center pt-16 w-full items-center rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
                             <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-4 pt-8 px-10 rounded-[50px] ">
-                                <div className="flex flex-col mt-0 mb-12 md:mb-0 md:mt-32 gap-8 w-2/5 items-start">
-                                    <div className="text-4xl font-primary text-left leading-[50px]">
+                                <div className="flex flex-col mt-0 mb-12 mx-10 md:mb-10 md:mt-5 gap-8 w-full items-start">
+                                <div className="text-4xl font-primary text-left leading-[50px]">
                                         <motion.div
                                             variants={fadeIn("right", 0.4)}
                                             initial="hidden"
@@ -209,18 +227,21 @@ export default function HomePage({ email }) {
                                         </motion.div>
                                     </div>
                                     <Link
-                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-2/3 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
+                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-3/5 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
                                         href="/signup"
                                     >
                                         Sign up for free
                                     </Link>
                                 </div>
-                                <Image
-                                    src={logo}
-                                    width={453}
-                                    height={440}
-                                    alt="ZYPHER"
-                                />
+                               
+                                 
+                                    <Image
+                               
+                               src={logo}
+                               width={453}
+                               height={440}
+                               alt="ZYPHER"
+                           />    
                             </div>
                             <div>
                                 <div className="flex flex-col justify-center ">
