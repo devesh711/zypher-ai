@@ -13,6 +13,7 @@ import { FaClockRotateLeft } from "react-icons/fa6";
 import Modal from "../components/Modal";
 import Profile from "../components/Profile";
 import Heart from "../components/Heart";
+import bg from "../public/bg.png";
 import {
     Dropdown,
     DropdownTrigger,
@@ -164,42 +165,44 @@ export default function HomePage({ email }) {
                 </>
             ) : (
                 <>
-                    <div className="bg-black dark:bg-[#1d1d1f] max-w-8xl mx-auto">
+            <div className="bg-cover bg-center h-full w-full"
+            style={{backgroundImage: `url(${bg})`}} >
+                    <div className=" max-w-8xl mx-auto">
                         <div className="flex flex-col sm:flex-row items-center ml-0 sm:ml-10 pb-4">
                             <Image
                                 src={zypher}
-                                width={150}
-                                height={40}
+                                width={200}
+                                height={100}
                                 alt="ZYPHER"
                             />
-                            <div className="flex flex-row mr-0 sm:mr-14 mt-1 gap-4 ml-0 sm:ml-auto w-1/2 sm:w-1/3 items-center">
+                            <div className="flex flex-row font-['Hind Guntur fonts'] mr-0 sm:mr-14 mt-1 gap-4 ml-0 sm:ml-auto w-1/2 sm:w-1/3 items-center">
                             <Link
-                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
+                                    className="text-xl font-semibold text-[#fffefe] flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
                                     href="/login"
                                 >
                                    Pricing
                                 </Link>
                                 <Link
-                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
+                                    className="text-xl font-semibold text-[#fffefe]  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg "
                                     href="/login"
                                 >
                                     Help
                                 </Link>
                                 <Link
-                                    className="text-xl font-sans font-weight: 200 text-[#fffefe] bg-black  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg"
+                                    className="text-xl font-semibold text-[#fffefe]  flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg"
                                     href="/login"
                                 >
                                     Solution
                                 </Link>
                                 <Link
-                                    className="text-xl font-sans font-bold text-[#fffefe] bg-black border-3 border-sky-500 flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300 "
+                                    className="text-xl font-semibold text-[#fffefe] border-3 border-sky-500 flex flex-row justify-center pt-2 w-2/5 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300 "
                                     href="/login"
                                 >
-                                    Log In
+                                    Sign In
                                 </Link>
 
                                 <Link
-                                    className="text-xl font-sans font-bold text-black bg-[#ffff] flex flex-row justify-center pt-2 w-1/3 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
+                                    className="text-xl font-semibold text-black bg-[#ffff] flex flex-row justify-center pt-2 w-2/5 h-12 items-start rounded-lg  hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
                                     href="/signup"
                                 >
                                     Sign Up
@@ -207,12 +210,23 @@ export default function HomePage({ email }) {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-black dark:bg-[#1d1d1f] flex flex-col justify-end gap-4 w-full items-center">
-                        <div className="bg-black flex flex-col justify-center pt-16 w-full items-center rounded-tl-[50px] rounded-tr-[50px] md:pt-4">
-                            <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-16 w-5/6 items-start mt-4 mb-4 pt-8 px-10 rounded-[50px] ">
-                                <div className="flex flex-col mt-0 mb-12 mx-10 md:mb-10 md:mt-5 gap-8 w-full items-start">
-                                <div className="text-4xl font-primary text-left leading-[50px]">
-                                        <motion.div
+                    <div className="flex flex-col bg-center bg-cover justify-end gap-4 w-full items-center" 
+                    >
+                    
+                        <div className=" flex flex-col h-screen md:flex-row justify-end pt-16 w-5/6 items-center rounded-tl-[50px] rounded-tr-[50px] md:pt-4 ml-9">
+                            {/* <div className="bg-[#fefafa] flex flex-col-reverse md:flex-row justify-end gap-12 w-3/4 items-start mt-4 mb-4 pt-8 px-10 rounded-[50px] "> */}
+                                <div className="flex flex-col mx-13 md:mb-14 rem gap-6 w-full items-start">
+                               
+                                   <Image
+                               src={logo}
+                               width={550}
+                               height={550}
+                               alt="ZYPHER"
+
+                           />  
+                           </div>
+                           <div className=" text-5xl text-white font-['Hind Guntur fonts'] font-bold text-left leading-[50px] ">      
+                                <motion.div
                                             variants={fadeIn("right", 0.4)}
                                             initial="hidden"
                                             whileInView={"show"}
@@ -220,30 +234,27 @@ export default function HomePage({ email }) {
                                                 once: false,
                                                 amount: 0.5
                                             }}
-                                            className="text-4xl"
+                                            // className="text-5xl"
                                         >
-                                            Elevate Efficiency with <br />
-                                            AI Excellence.
+                                            Elevate Efficiency with
+                                           <span className="text-7xl mt-3 bg-gradient-to-r from-[#1E438E] to-[#CBD7F0]  inline-block text-transparent bg-clip-text"> AI Explanans</span>
+                                           <p className="text-lg mt-3 font-normal">We’re revolutionizing the way businesses leverage AI.<br></br>
+Ready to unlock the potential of using AI for your success?<br></br>
+Let’s embark on this transformative journey together</p>
                                         </motion.div>
-                                    </div>
+                                        
+                                  
                                     <Link
-                                        className="text-xl font-sans font-bold text-white bg-[#2145c5] flex flex-row justify-center pt-0 px-2 sm:pt-5 w-full md:w-3/5 sm:h-16 items-start rounded-[20px] drop-shadow-2xl hover:shadow-md hover:shadow-blue-700/70  hover:duration-300"
+                                        className="text-xl font-['Hind Guntur fonts'] font-bold text-black bg-blue-gray-50 flex flex-row w-40 justify-center ml-16 mt-5 sm:pt-3 pb-2 h-2/5 rounded-[10px] drop-shadow-2xl hover:shadow-md hover:shadow-blue-700/70 hover:duration-300"
                                         href="/signup"
                                     >
-                                        Sign up for free
+                                        Get Started
                                     </Link>
-                                </div>
-                               
-                                 
-                                    <Image
-                               
-                               src={logo}
-                               width={453}
-                               height={440}
-                               alt="ZYPHER"
-                           />    
+                                    </div>
+                                
+                             
                             </div>
-                            <div>
+                            {/* <div>
                                 <div className="flex flex-col justify-center ">
                                     <label className="flex justify-center md:mb-3 text-center">
                                         © 2024 FOZZIL .All Rights Reserved
@@ -268,9 +279,10 @@ export default function HomePage({ email }) {
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
+                    {/* </div> */}
                 </>
             )}
         </Layout>

@@ -14,6 +14,9 @@ module.exports = withMT({
     ],
     theme: {
         extend: {
+            backgroundImage: {
+                'hero-pattern': "url('/public/bg.png')",
+            },
             fontFamily: {
                 primary: "Arial_Rounded_MT_Bold",
                 Inter: "Inter"

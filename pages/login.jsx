@@ -16,6 +16,7 @@ import { get } from "https";
 import { UserAuth } from "../context/AuthContext";
 import { redirect } from "next/dist/server/api-utils";
 
+
 export default function LoginPage({ email }) {
     const { user, googleSignIn, logOut } = UserAuth();
 
